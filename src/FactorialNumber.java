@@ -2,7 +2,7 @@ public class FactorialNumber {
 
     public static void main(String[] args) {
 
-        System.out.println("factorial(5) = 120 =?= " + factorial(50000));
+        System.out.println("factorial(5) = 120 =?= " + factorial(5));
 
         System.out.println("factorial(7) = 5040 =?= " + factorial(7));
 
@@ -20,12 +20,17 @@ public class FactorialNumber {
 
     /*Berechnet die Ziffernsumme */
     public static int sumOfDigits(int value) {
-        return 0;
+        if (value < 10)
+            return value;
+
+        return sumOfDigits(value / 10) + value % 10;
     }
 
     /*Berechnet x hoch y "händisch" ohne Schleifene oder sonstigen Methoden */
     public static int pow(int x, int y) {
-        return 0;
+        if (y == 1)
+            return x;
+        return x * pow(x, y - 1);
     }
 
     /* Berechnete die n. Fibonacci-Zahl
@@ -33,6 +38,8 @@ public class FactorialNumber {
     * n = 6 => 8
     *  */
     public static int fibonacci(int n) {
-        return 0;
+        if (n <= 2)
+            return 1;
+        return fibonacci(n-1) + fibonacci(n - 2);
     }
 }
